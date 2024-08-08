@@ -3,8 +3,8 @@ from tkinter import *
 
 # Define the press Function
 def press(event):
-    global expression  # make expression globally accessible
-    text = event.widget.cget("text") #  get the current text displayed on the button that triggered the event and store it in a variable
+    global expression                             # make expression globally accessible
+    text = event.widget.cget("text")              #  get the current text displayed on the button that triggered the event and store it in a variable
 
     # if '=' is pressed , evaluate the expression and the result is stored in expression & set the value of expression to the variable data 
     if text == "=":
@@ -35,8 +35,8 @@ expression = ""
 data = StringVar()
 
 # Create and Pack the Display Entry Widget
-inp = Entry(window, textvar = data, font = "lucida 20 bold")
-inp.pack()
+inp = Entry(window, textvar = data, font = "lucida 20 bold", justify='right')
+inp.pack(padx=10,pady=10,ipady=10)
 
 # Create and Pack the Frame for Buttons
 button_frame = Frame(window)
@@ -55,12 +55,10 @@ r = 0
 c = 0
 for button_text in buttons:
     b = Button(button_frame, text = button_text, font = "lucida 15 bold", padx = 20, pady = 20)
-    b.grid(row = r, column = c, padx = 5, pady = 5)
-    b.bind("<Button-1>", press)  # bind left click of button with the event press    
-    c += 1  # increment grid position to next column 
-    
-    # if column > 3, increment grid position to first position of next row
-    if(c > 3): 
+    b.grid(row = r, column = c, padx = 10, pady = 10)
+    b.bind("<Button-1>", press)         # bind left click of button with the event press    
+    c += 1                              # increment grid position to next column 
+    if(c > 3):                          # if column > 3, increment grid position to first position of next row
         c = 0
         r += 1
 
