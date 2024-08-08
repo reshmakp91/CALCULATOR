@@ -27,7 +27,7 @@ def press(event):
     
 # Create the Main Window
 window = Tk()
-window.geometry("400x400")
+window.geometry("380x500")
 window.title("CALCULATOR")
 
 # Initialize Variables
